@@ -1,5 +1,4 @@
 # MazeRunner-MyFirstGame
-# MazeRunner-MyFirstGame
 
 ## Hecho por: Alexis Rivera Merlin
 ## Para: GameJam de Flisol Boca del Rio 2025
