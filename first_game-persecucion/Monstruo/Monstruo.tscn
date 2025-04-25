@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://c00krvixtyn1x"]
+
+[ext_resource type="Script" uid="uid://ctgjssmj81mvs" path="res://Monstruo/monstruo.gd" id="1_ob2cd"]
+[ext_resource type="Texture2D" uid="uid://cbgm02wtisj5u" path="res://Sprites/Zombie.png" id="2_ajwot"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ajwot"]
+radius = 12.0
+
+[node name="Monstruo" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 2
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_ob2cd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ajwot")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+texture = ExtResource("2_ajwot")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="WaitTimer" type="Timer" parent="."]
+
+[node name="SearchTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="WaitTimer" to="." method="_on_WaitTimer_timeout"]
+[connection signal="timeout" from="SearchTimer" to="." method="_on_PathTimer_timeout"]

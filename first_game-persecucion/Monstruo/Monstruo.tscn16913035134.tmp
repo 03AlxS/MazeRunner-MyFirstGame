@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c00krvixtyn1x"]
+
+[ext_resource type="Script" uid="uid://ctgjssmj81mvs" path="res://Monstruo/monstruo.gd" id="1_ob2cd"]
+[ext_resource type="Texture2D" uid="uid://dlnowm1iug3w5" path="res://icon.svg" id="1_so4w8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ajwot"]
+radius = 12.0
+
+[node name="Monstruo" type="CharacterBody2D"]
+script = ExtResource("1_ob2cd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_so4w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ajwot")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.83
+autostart = true
